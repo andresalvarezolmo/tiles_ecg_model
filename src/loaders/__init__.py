@@ -1,7 +1,7 @@
 from .tiles import TILES_ECG
 from .swell_kw import SWELL_KW
 from .wesad import WESAD
-from .mirise import MIRISE
+# from .mirise import MIRISE
 from .ptb_xl import PTB_XL
 from .ludb import LUDB
 from .avec16 import AVEC16
@@ -13,8 +13,8 @@ def get_dataset(dataset, dataset_dir, gtruth, sr=100, split="train", ecg_only=Tr
         return SWELL_KW(root=dataset_dir, sr=sr, gtruth=gtruth)
     elif dataset == "WESAD":
         return WESAD(root=dataset_dir, sr=sr)
-    elif dataset == "MIRISE":
-        return MIRISE(root=dataset_dir, sr=sr, cat=gtruth)
+    # elif dataset == "MIRISE":
+    #     return MIRISE(root=dataset_dir, sr=sr, cat=gtruth)
     elif dataset == "ptb_xl":
         return PTB_XL(root=dataset_dir, sr=sr, split=split)
     elif dataset == "LUDB":
