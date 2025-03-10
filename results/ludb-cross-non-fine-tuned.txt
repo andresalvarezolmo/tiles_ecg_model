@@ -1,0 +1,4 @@
+Chunk-wise Accuracy: 0.550 (0.219)
+Chunk-wise F1-macro: 0.371 (0.117)
+Aggregated Accuracy: 0.550 (0.219)
+Aggregated F1-macro: 0.371 (0.117)
