@@ -1,0 +1,6 @@
+Metric       Mean   Standard Deviation
+Accuracy     0.225 (0.105)
+AUROC        0.486 (0.038)
+F1-macro     0.164 (0.048)
+Specificity  0.819 (0.020)
+Precision    0.086 (0.048)

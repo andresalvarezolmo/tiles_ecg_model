@@ -1,0 +1,6 @@
+Metric       Mean   Standard Deviation
+Accuracy: 0.455 (0.209)
+F1-macro: 0.329 (0.129)
+Specificity: 0.321 (0.413)
+Precision: 0.275 (0.156)
+Recall: 0.502 (0.005)

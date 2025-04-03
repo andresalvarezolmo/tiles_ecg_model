@@ -1,5 +1,0 @@
-Aggregated Accuracy: 0.333 (0.279)
-Aggregated F1-macro: 0.258 (0.236)
-Chunk-wise Specificity: 0.197 (0.393)
-Aggregated Precision: 0.260 (0.292)
-Aggregated Recall: 0.333 (0.279)
