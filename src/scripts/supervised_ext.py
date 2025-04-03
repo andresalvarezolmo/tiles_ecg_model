@@ -11,6 +11,7 @@ from src.loaders import get_dataset
 from src.models import ResNet1D, S4Model
 from src.trainers import *
 
+# Used for PTB-XL
 
 if __name__ == "__main__":
     # --------------
@@ -22,7 +23,7 @@ if __name__ == "__main__":
     parser = Trainer.add_argparse_args(parser)
 
     # get dataset from command line:
-    parser.add_argument("--this", default="mirise", type=str)
+    parser.add_argument("--this", default="ptbxl", type=str)
     args = parser.parse_args()
 
     # extract args from config file and add to parser:
@@ -33,8 +34,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # set random seed if selected:
-    if args.seed:
-        pl.seed_everything(args.seed, workers=True)
+    pl.seed_everything(args.seed, workers=True)
 
     # set experiment name
     ld = str(args.low_data).strip(".") if args.low_data != 1 else ""
@@ -201,6 +201,6 @@ if __name__ == "__main__":
     )
     # log results
     os.makedirs("results", exist_ok=True)
-    with open(f"results/{exp_name}.txt", "w") as f:
+    with open(f"results/{args.this}/finetuned/{args.this}-fine-tuned-1.txt", "w") as f:
         for m, v in metrics.items():
             f.write("{}: {:.3f}\n".format(m, v))

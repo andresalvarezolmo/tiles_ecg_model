@@ -14,6 +14,7 @@ from src.trainers import *
 
 torch.set_float32_matmul_precision("high")
 
+# Used for WESAD and LUDB
 
 if __name__ == "__main__":
 
@@ -26,7 +27,7 @@ if __name__ == "__main__":
     parser = Trainer.add_argparse_args(parser)
 
     # get dataset from command line:
-    parser.add_argument("--this", default="mirise", type=str)
+    parser.add_argument("--this", default="wesad", type=str)
     args = parser.parse_args()
 
     # extract args from config file and add to parser:
@@ -174,16 +175,17 @@ if __name__ == "__main__":
             callbacks=[model_ckpt_callback, early_stop_callback],
         )
 
+        # Comment this block if no need to fine tune
         # train and save model
-        trainer.fit(
-            model,
-            train_dataloaders=train_loader,
-            val_dataloaders=valid_loader,
-            ckpt_path=args.ckpt_path,
-        )
-        # load best model
-        ckpt = torch.load(model_ckpt_callback.best_model_path)
-        model.load_state_dict(ckpt['state_dict'])
+        # trainer.fit(
+        #     model,
+        #     train_dataloaders=train_loader,
+        #     val_dataloaders=valid_loader,
+        #     ckpt_path=args.ckpt_path,
+        # )
+        # # load best model
+        # ckpt = torch.load(model_ckpt_callback.best_model_path)
+        # model.load_state_dict(ckpt['state_dict'])
 
         # ----------
         # EVALUATION
@@ -209,7 +211,7 @@ if __name__ == "__main__":
     # -----------
     
     os.makedirs("results", exist_ok=True)
-    with open(f"results/{exp_name}.txt", "w") as f:
+    with open(f"results/{args.this}/finetuned/{args.this}-final.txt", "w") as f:
         for m, v in all_metrics.items():
             f.write("Chunk-wise {}: {:.3f} ({:.3f})\n".format(m, np.mean(v), np.std(v)))
         for m, v in all_metrics_agg.items():

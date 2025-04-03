@@ -1,3 +1,0 @@
-Accuracy: 0.140
-AUROC: 0.520
-F1-macro: 0.151

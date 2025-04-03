@@ -1,0 +1,6 @@
+Accuracy: 0.423
+AUROC: 0.832
+F1-macro: 0.435
+Specificity: 0.879
+Precision: 0.511
+Recall: 0.384
